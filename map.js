@@ -184,10 +184,11 @@ map.on('load', async () => {
       .data(filteredStations, (d) => d.short_name)
       .join('circle')
       .attr('r', (d) => radiusScale(d.totalTraffic))
-      .attr('fill', (d) => getColor(d.departures / d.totalTraffic));
+      .attr('fill', (d) => getColor(d.departures / d.totalTraffic))
+      .select('title')
+      .text((d) => `${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
     updatePositions();
   }
-
   const timeSlider = document.querySelector('#time-slider');
   const selectedTime = document.querySelector('#selected-time');
   const anyTimeLabel = document.querySelector('#any-time');
