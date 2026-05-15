@@ -27,7 +27,6 @@ header em {
   font-style: italic;
 }
 
-/* Map container */
 html, body {
   height: 100%;
   width: 100%;
@@ -41,7 +40,6 @@ html, body {
   position: relative;
 }
 
-/* SVG overlay on map */
 #map svg {
   position: absolute;
   top: 0;
@@ -52,20 +50,8 @@ html, body {
   pointer-events: none;
 }
 
-/* Color variables shared between circles and legend */
---color-departures: steelblue;
---color-arrivals: darkorange;
-
-/* Station circles */
+/* Station circles - fill color set via JS */
 #map circle {
-  --color-departures: steelblue;
-  --color-arrivals: darkorange;
-  --color: color-mix(
-    in oklch,
-    var(--color-departures) calc(100% * var(--departure-ratio)),
-    var(--color-arrivals)
-  );
-  fill: var(--color);
   fill-opacity: 0.6;
   stroke: white;
   stroke-width: 1;
@@ -85,14 +71,10 @@ html, body {
   flex: 1;
   text-align: center;
   padding: 0.4em 1em;
-  --color-departures: steelblue;
-  --color-arrivals: darkorange;
-  --color: color-mix(
-    in oklch,
-    var(--color-departures) calc(100% * var(--departure-ratio)),
-    var(--color-arrivals)
-  );
-  background: var(--color);
   color: white;
   font-weight: 500;
 }
+
+.legend > div:nth-child(1) { background: steelblue; }
+.legend > div:nth-child(2) { background: purple; }
+.legend > div:nth-child(3) { background: darkorange; }
